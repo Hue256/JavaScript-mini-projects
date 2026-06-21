@@ -1,18 +1,12 @@
-let sides = Number(prompt("Enter the number of sides for the dice (eg: 6, 10, 20)"));
+let inp = document.querySelector("input");
+let btn = document.querySelector("button");
+let message = document.querySelector("p");
+let result = document.querySelector("#result");
 
-let cmd = prompt(`Enter "r" to roll and "q" to quit`);
+btn.addEventListener("click", function() {
+    let sides = Number(inp.value);
 
-while(true) {
-    if(cmd == "q") {
-        console.log("Exited dice roller");
-        break;
-    }
-
-    if(cmd == "r") {
-        let rand = Math.floor(Math.random() * sides) + 1;
-        console.log(rand);
-    } else {
-        console.log(`wrong command, please enter "r" to roll and "q" to quit`);
-    }
-    cmd = prompt(`Enter "r" to roll and "q" to quit`);
-}
+    let random = Math.floor(Math.random() * sides) + 1;
+    message.innerText = `You rolled:`;
+    result.innerText = random;
+});
